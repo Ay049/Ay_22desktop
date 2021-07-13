@@ -20,11 +20,6 @@ import AyOutlineMd from './childComps/AyOutlineMd.vue'
 
 export default {
   name: 'SelfStudy',
-  // data () {
-  //   return {
-  //     isShow: true
-  //   }
-  // },
   components: {
     MainNavBar,
     AySummaryMd,
