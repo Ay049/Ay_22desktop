@@ -1776,8 +1776,8 @@
 #### class
 
  * ```js
-   class XXX {    
-       static  key =  value  // 静态属性 	static fn( ){        XXXXXXXXX    }
+   class XXX {
+       static  key =  value  // 静态属性  static fn( ){ XXXXXXXXX }
    }
    ```
 
@@ -1796,20 +1796,20 @@
      * super.functionOnParent([arguments]);  // 调用 父对象/父类 上的方法
 
    * ```js
-     class 父类 {    
-         constructor()    
-         this.x = x	
-         a () {        
-             aaaaaa    
+     class 父类 {
+         constructor()
+         this.x = x
+         a () {
+             aaaaaa
          }
      }
-     class 子类 extends 父类 {    
-         constructor()    
-         super() 
-         // super 需要写在this前面    
-         this.x = x     
-     	b () {		
-             bbbbbbb    
+     class 子类 extends 父类 {
+         constructor()
+         super()
+         // super 需要写在this前面
+         this.x = x
+         b () {
+             bbbbbbb
          }
      }
      ```
@@ -1865,7 +1865,7 @@
     new Promise((resolve, reject) => {
       setTimeout(() => {
         // 假设第一次请求,并将请求结果传给then处理
-        resolve('aaa')
+         resolve('aaa')
       }, 1000);
     }).then((res) => {
       console.log(res, '假设对第一次请求做了n行的代码第一次处理');
@@ -1971,7 +1971,7 @@
   * ```js
     Promise.all([
         new Promise() // 第一个
-        new Promise() // 第二个 
+        new Promise() // 第二个
     ]).then
     ```
 
@@ -1982,14 +1982,14 @@
 * await 要放在 async 函数中
 
 * ```js
-  const p = new Promise((resolve, reject) => {  
-      // resolve("成功的Promise");  
+  const p = new Promise((resolve, reject) => {
+      // resolve("成功的Promise");
       reject("失败的Promise");
   })
-  async function fn() {   
-      try {    
-          let result = await p;  
-      } 
+  async function fn() {
+      try {
+          let result = await p;
+      }
       catch (e) {  }
   }
   fn()
@@ -2076,18 +2076,16 @@
 
 ####  function*表达式
 
-* ​		function*	关键字可以在表达式内部定义一个生成器函数。
+* function*   关键字可以在表达式内部定义一个生成器函数。
 
   * ```js
-    function* gen() {    
-        yield a();	
-        yield b();	
-        yield c();	
-        yield d();
+    function* gen() {
+      yield a();
+      yield b();
+      yield c();
+      yield d();
     }
     ```
-
-    
 
 * 配合.next()方法实现逐个运行的效果
 
@@ -2461,22 +2459,22 @@
           use: [
             //use数组中的loader执行顺序:从右到左,从下到上 一次执行
             // 'style-loader',
-          	MiniCssExtractPlugin.loader,
-          	'css-loader',
-          	{
-           	  loader: 'postcss-loader',
-          	  options: {
-          	    postcssOptions: {
-         	          plugins: [
-           	       [
-           	         "postcss-preset-env",
-           	         {
-           	           // 选项
-            	         },
-               	   ],
-                	],
+            MiniCssExtractPlugin.loader,
+              'css-loader',
+              {
+                loader: 'postcss-loader',
+                options: {
+                  postcssOptions: {
+                    plugins: [
+                      [
+                       "postcss-preset-env",
+                       {
+                         // 选项
+                       },
+                     ],
+                   ],
                 },
-            	},
+              },
             }
           ]
         },
@@ -2499,7 +2497,7 @@
         {
           exclude: /\.(css|js|html|jpg|png|gif|josn)$/,
           loader: 'file-loader'
-        }  
+        }
       ]
     },
     // plugins的配置
@@ -2517,10 +2515,10 @@
     mode: 'development', //  开发模式
     //mode:'production' //根据环境所需注释development或production代码
     devServer: {
-    	contentBase: resolve(__dirname, 'build'),
-    	compress: true,
-    	port: 3000,
-    	open: true
+      contentBase: resolve(__dirname, 'build'),
+      compress: true,
+      port: 3000,
+      open: true
     }
   }
   ```
@@ -2530,13 +2528,13 @@
   * ```js
     // webpack.config.js 文件
     /*
-      js兼容性处理：babel-loader @babel/core 
+      js兼容性处理：babel-loader @babel/core
       1. 基本js兼容性处理 ==> @babel/preset-env
          问题：只能转换基本语法，如promise高级语法不能转换
-      2. 全部js兼容性处理 ==> @babel/polyfill  
+      2. 全部js兼容性处理 ==> @babel/polyfill
          问题：我只要解决部分兼容性问题，但是将所有兼容性代码全部引入，体积太大了~
       3. 需要做兼容性处理的就做：按需加载  ==> core-js
-    */ 
+    */
     {
       test: /\.js$/,
       exclude: /node_modules/,
@@ -2590,13 +2588,13 @@
   * ```js
     // webpack.config.js 文件
     devServer: {
-       contentBase: resolve(__dirname, 'build'),
-       compress: true,
-       port: 3000,
-       open: true,
-       // 开启HMR功能
-       // 当修改了webpack配置，新配置要想生效，必须重新webpack服务
-       hot: true
+      contentBase: resolve(__dirname, 'build'),
+      compress: true,
+      port: 3000,
+      open: true,
+      // 开启HMR功能
+      // 当修改了webpack配置，新配置要想生效，必须重新webpack服务
+      hot: true
     }
     ```
 
@@ -2664,7 +2662,7 @@
   * ```js
     // server.js 文件
     // 懒加载~：当文件需要使用时才加载~
-    // 预加载 prefetch：会在使用之前，提前加载js文件  等其他资源加载完毕，浏览器空闲了，再偷偷加载资源
+    // 预加载 prefetch：会在使用之前，提前加载js文件 等其他资源加载完毕，浏览器空闲了，再偷偷加载资源
     import(/* webpackChunkName: 'test', webpackPrefetch: true */'./test').then(({ mul }) => {
       console.log(mul(4, 5));
     });
@@ -2719,15 +2717,15 @@
 
   * ```js
     // webpack.config.js 文件
-    // 开启多进程打包。 
-    // 进程启动大概为600ms，进程通信也有开销。
+    // 开启多进程打包
+    // 进程启动大概为600ms，进程通信也有开销
     // 只有工作消耗时间比较长，才需要多进程打包
-    use:[  
-      {  	
-        loader: 'thread-loader',    
-        options: {      
-            workers: 2 // 进程2个    
-        }  
+    use:[
+      {
+        loader: 'thread-loader',
+        options: {
+            workers: 2 // 进程2个
+        }
       }
     ]
     ```
@@ -2736,7 +2734,7 @@
 
   * ```js
     // 在webpack中加载jQuery扩展
-    // index.js中载入    import $ from 'jquery';
+    // index.js中载入 import $ from 'jquery';
     // html中cdn引入jQuery
     externals: {  jquery: 'jQuery'}
     ```
@@ -2747,54 +2745,54 @@
     // webpack.dll.js文件
     const {  resolve} = require("path");
     const webpack = require("webpack");
-    module.exports = {  
-        entry: {    
-            jquery: ['jquery']  
-        },  
-        output: {    
-            filename: '[name].js',    
-            path: resolve(__dirname, 'dll'),    
-            library: '[name]_[hash]',  
-        },  
-        plugins: [    
-            new webpack.DllPlugin({      
-                name: '[name]_[hash]',      
-                path: resolve(__dirname, 'dll/manifest.json'),    
-            })  
-        ],  
+    module.exports = {
+        entry: {
+            jquery: ['jquery']
+        },
+        output: {
+            filename: '[name].js',
+            path: resolve(__dirname, 'dll'),
+            library: '[name]_[hash]',
+        },
+        plugins: [
+            new webpack.DllPlugin({
+                name: '[name]_[hash]',
+                path: resolve(__dirname, 'dll/manifest.json'),
+            })
+        ],
         mode: 'production'}
     /*  使用dll技术，对某些库（第三方库：jquery、react、vue...）进行单独打包    当你运行 webpack 时，默认查找 webpack.config.js 配置文件    需求：需要运行 webpack.dll.js 文件     ==> webpack --config webpack.dll.js*/
     ```
 
     ```js
     // webpack.config.js 文件
-    const {  resolve} = require('path');
+    const {resolve} = require('path');
     const HtmlWebpackPlugin = require('html-webpack-plugin');
     const webpack = require('webpack');
     const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
-    module.exports = {  
-        entry: './src/index.js',  
-        output: {    
-            filename: 'built.js',    
-            path: resolve(__dirname, 'build')  
-        },  
-        plugins: [    
-            new HtmlWebpackPlugin({      
-                template: './src/index.html'    
-            }),    
-            // 告诉webpack哪些库不参与打包，同时使用时的名称也得变~    
-            new webpack.DllReferencePlugin({      
-                manifest: resolve(__dirname, 'dll/manifest.json')    
-            }),    
-            // 将某个文件打包输出去，并在html中自动引入该资源    
-            new AddAssetHtmlWebpackPlugin({      
-                filepath: resolve(__dirname, 'dll/jquery.js'),      
-                publicPath: '../dll/'    
-            })  
-        ],  
-        mode: 'production',  
-        // externals:{  
-        //     jquery:'jQuery'  
+    module.exports = {
+        entry: './src/index.js',
+        output: {
+            filename: 'built.js',
+            path: resolve(__dirname, 'build')
+        },
+        plugins: [
+            new HtmlWebpackPlugin({
+                template: './src/index.html'
+            }),
+            // 告诉webpack哪些库不参与打包，同时使用时的名称也得变~
+            new webpack.DllReferencePlugin({
+                manifest: resolve(__dirname, 'dll/manifest.json')
+            }),
+            // 将某个文件打包输出去，并在html中自动引入该资源
+            new AddAssetHtmlWebpackPlugin({
+                filepath: resolve(__dirname,'dll/jquery.js'),
+                publicPath: '../dll/'
+            })
+        ],
+        mode: 'production',
+        // externals:{
+        //     jquery:'jQuery'
         // }}
     ```
 
@@ -2987,7 +2985,7 @@
   * ```html
     /* Vue3 */
     需要嵌套一个template
-    <template v-slot: 具名> 
+    <template v-slot: 具名>
         <div></div>
     </template>
     ```
@@ -3063,7 +3061,7 @@
   computed: {
     isActive () {
       return this.$route.path.indexOf(this.path) !== -1
-  	// 解决重复点击报错方式二
+      // 解决重复点击报错方式二
     }
   },
   methods: {
@@ -3213,9 +3211,9 @@
     a(context) {
         return new Promise((res,rej) => {
             setTimeout(() => {
-            	context.commit('mutations内的方法')
+                context.commit('mutations内的方法')
                 res('选择是否传出的参数')
-        	},1000)
+            },1000)
         })
     }
     // 调用
