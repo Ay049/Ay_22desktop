@@ -67,30 +67,21 @@ export default {
         that.$refs.spage3.isAct3FunEnd() // 不在第三页时关闭第三页的轮播
       }
     })
-    // var vm = null
-    // function myPromise (vm) {
-    //   return new Promise((resolve) => {
-    //     console.log('promise: ', vm)
-    //     resolve(vm)
-    //   })
-    // }
-    // this.swiper.on('slideChange', function () {
-    //   myPromise(vm).then(resolve => {
-    //     vm = this.activeIndex
-    //     console.log('then: ', vm)
-    //   })
-    // })
-    // console.log('外部' + vm)
-    // --------------------------------
   }
 }
 </script>
 <style src="@/assets/css/welcomeswiper.css" scoped></style>
-<style scoped>
+<style>
   /* 轮播图整体背景 */
   .mySwiper {
     background: url('~@/assets/images/ppt/黑夜星空背景.jpg') no-repeat;
     background-size: cover;
     color: rgb(255, 255, 255);
+  }
+  .swiper-pagination-bullet {
+    background-color: #fff
+  }
+  .swiper-pagination-bullet-active {
+    background: #fff
   }
 </style>

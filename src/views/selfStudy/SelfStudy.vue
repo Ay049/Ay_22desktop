@@ -1,14 +1,14 @@
 <template>
   <div class="self_study">
     <div class="fixed-top fff"><MainNavBar></MainNavBar></div>
-      <div class="w">
-          <div class="outline">
-            <AyOutlineMd></AyOutlineMd>
-          </div>
-        <div class="md-Window">
-          <AySummaryMd></AySummaryMd>
-        </div>
+    <div class="w">
+      <div class="outline">
+        <AyOutlineMd></AyOutlineMd>
       </div>
+      <div class="md-Window">
+        <AySummaryMd></AySummaryMd>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
 }
 </script>
 <style scoped>
-.w  {
+.w {
   position: relative;
 }
 .outline {
@@ -38,9 +38,8 @@ export default {
   width: 200px;
   height: calc(100vh - 55px);
   overflow: auto;
-
 }
-.outline>ul {
+.outline > ul {
   list-style: none;
 }
 

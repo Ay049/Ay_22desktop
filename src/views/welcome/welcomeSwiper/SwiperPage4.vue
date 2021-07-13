@@ -30,7 +30,7 @@ export default {
           clearInterval(this.playTimer)
           window.location.href = '/home'
         }
-      }, 1200)
+      }, 800)
     }
   }
 }
