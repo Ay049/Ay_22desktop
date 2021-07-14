@@ -11,7 +11,7 @@
                 class="hd_search_inp"
                 type="text"
                 v-model="query"
-                @keyup.enter="a"
+                @keyup.enter="queryKeyup"
               />
               <button class="hd_search_btn" @click="btnClick">搜索</button>
             </div>
@@ -111,35 +111,42 @@ export default {
     }
   },
   created () {
+    // getQuery().then((response) => {
+    //   console.log(response)
+    //   this.musicList = response.data.result.songs
+    // }).catch((err) => {
+    //   console.log('报错了,老哥' + err)
+    // })
   },
-  mothods: {
-    a () {
+  methods: {
+    queryKeyup () {
       getQuery().then((response) => {
         console.log(response)
-        this.musicList = response.data.result.songs
+        this.musicList = response.result.songs
       }).catch((err) => {
-        console.log('报错了,老哥' + err)
+        console.log('getQuery()报错了,老哥' + err)
       })
     },
     btnClick () {
-      this.a()
+      this.queryKeyup()
     },
-    b () {
-      getMusicUrl().then((response) => {
-        this.musicUrl = response.data.data[0].url
+    b (musicId) {
+      getMusicUrl(musicId).then((response) => {
+        console.log(response)
+        this.musicUrl = response.data[0].url
       }).catch((err) => {
-        console.log('报错了,老哥' + err)
+        console.log('getMusicUrl()报错了,老哥' + err)
       })
-      getPicUrl().then((response) => {
+      getPicUrl(musicId).then((response) => {
         this.isshow = !this.isshow
-        this.picUrl = response.data.songs[0].al.picUrl
+        this.picUrl = response.songs[0].al.picUrl
       }).catch((err) => {
-        console.log('报错了,老哥' + err)
+        console.log('getPicUrl()报错了,老哥' + err)
       })
-      getIds().then((response) => {
-        this.userHot = response.data.hotComments
+      getIds(musicId).then((response) => {
+        this.userHot = response.hotComments
       }).catch((err) => {
-        console.log('报错了,老哥' + err)
+        console.log('getIds()报错了,老哥' + err)
       })
     },
     play () {
@@ -148,12 +155,12 @@ export default {
     pause () {
       this.ccc = false
     },
-    playMv () {
-      getMvid().then((response) => {
+    playMv (mvid) {
+      getMvid(mvid).then((response) => {
         console.log(response)
-        console.log(response.data.data.url)
+        console.log(response.data.url)
         this.videoShow = true
-        this.mvUrl = response.data.data.url
+        this.mvUrl = response.data.url
       }).catch((err) => {
         console.log('报错了,老哥' + err)
       })
