@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.box {
+    margin: 50px auto;
+    width: 800px;
+    height: 600px;
+    border: 1px solid red;
+}
+
+.hd_box {
+    background-color: #11a1dc;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+}
+
+.hd_txt {
+    float: left;
+    padding-left: 20px;
+    font-size: 24px;
+    color: #fff;
+}
+
+/* 搜索框 */
+.hd_search {
+    float: right;
+    padding-right: 20px;
+}
+
+.bd_box {
+    width: 100%;
+    height: 520px;
+    background-image: linear-gradient(to bottom right, #cab39e, #83acc9);
+    display: flex;
+}
+
+.music_list,
+.music_comments {
+    flex: 1;
+    overflow: auto;
+}
+
+/* 唱片 s*/
+.music_info {
+    flex: 2;
+    border-left: 1px red solid;
+    border-right: 1px red solid;
+    position: relative;
+}
+
+.record_w_box,
+.record_n_box,
+.record_n_img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+
+}
+
+.record_w_box {
+    background-image: linear-gradient(#000 40%, #fff 50%, #000 60%);
+
+}
+
+.record_n_box {
+    width: 200px;
+    height: 200px;
+    top: 50px;
+}
+
+.record_n_img {
+    width: 200px;
+    height: 200px;
+    top: 50px;
+}
+
+.picR {
+    animation: picRotation 5s infinite linear;
+    animation-play-state: paused;
+}
+
+.record_w_box.picR .record_n_box {
+    animation-play-state: running;
+}
+
+@keyframes picRotation {
+    100% {
+        /* width: 200px;
+        height: 200px; */
+        transform: rotate(360deg);
+    }
+}
+
+/* 歌单 */
+.music_list_li {
+    width: 180px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, .3);
+    line-height: 30px;
+    overflow: hidden;
+    position: relative;
+}
+
+.music_list_li_play {
+    width: 20px;
+    height: 30px;
+    padding: 0 10px;
+}
+
+.music_list_li_name {
+    width: 120px;
+    /* display: block; */
+    overflow: hidden;
+}
+
+.music_list_li_mv {
+    width: 20px;
+    height: 30px;
+    position: absolute;
+    left: 160px;
+    top: 0px;
+}
+
+/* 播放器 */
+.foot_box {
+    background-color: #f1f3f4;
+    height: 40px;
+}
+
+.music_play {
+    width: 100%;
+    height: 40px;
+}
+
+/* 评论 */
+.user {
+    margin: 10px;
+    border: 1px red solid;
+    position: relative;
+    overflow: hidden;
+}
+
+.faces {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: pink;
+    float: left;
+    margin: 5px;
+    overflow: hidden;
+
+}
+
+.user_faces {
+    width: 100%;
+    height: 100%;
+}
+
+.username {
+    font-size: 18px;
+    height: 20px;
+    overflow: hidden;
+    padding-top: 15px;
+}
+
+.usertxt {
+    float: left;
+    font-size: 15px;
+    padding-left: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.hot {
+    margin: 6px;
+    font-size: 24px;
+}
+
+/* mv */
+video {
+    position: fixed;
+    width: 800px;
+    height: 546px;
+    left: 50%;
+    top: 50%;
+    margin-top: -273px;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.close{
+    font-size: 30px;
+    color: #fff;
+    position: fixed;
+    z-index: 3;
+    left: 50%;
+    top: 50%;
+    margin-top: -280px;
+    margin-left: 420px;
+    transform: translateX(-50%);
+}

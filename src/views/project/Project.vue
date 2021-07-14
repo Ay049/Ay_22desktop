@@ -5,8 +5,6 @@
       我的一些项目
       <a href="http://www.baidu.com" target="_blank" title="鼠标移到这个图片上就会显示这句话啦！">项目一</a><br>
       <a href="http://www.baidu.com" target="_blank">项目二</a><br>
-      <a href="http://www.baidu.com" target="_blank">项目三</a><br>
-      <a href="http://www.baidu.com" target="_blank">项目四</a><br>
     </div>
   </div>
 </template>

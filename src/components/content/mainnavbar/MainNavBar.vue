@@ -22,6 +22,13 @@
           </div>
         </template>
       </NavBarItem>
+      <NavBarItem path="/music">
+        <template #item-text>
+          <div>
+            Music
+          </div>
+        </template>
+      </NavBarItem>
       <NavBarItem path="/resume">
         <template #item-text>
           <div>
