@@ -30,6 +30,7 @@ export default {
 <style scoped>
 .w {
   position: relative;
+  background-color: rgb(191, 237, 255);
 }
 .outline {
   position: fixed;
@@ -41,12 +42,12 @@ export default {
 }
 .outline > ul {
   list-style: none;
+  background-color: #94e1ff;
 }
 
 .md-Window {
   margin-left: 200px;
   padding-left: 30px;
   padding-right: 30px;
-  background-color: rgb(191, 237, 255);
 }
 </style>
