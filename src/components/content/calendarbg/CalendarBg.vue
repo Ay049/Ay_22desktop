@@ -1,23 +1,39 @@
 <template>
   <div class="canvas_body">
-    <canvas id="cvs" ref="cvs" class="hidden" width="1980"></canvas>
-    <!-- <canvas id="screenImage" ref="screenImage" class="hidden" width="234" height="357"></canvas> -->
+    <canvas id="cvs" ref="cvs" class="hidden" width="1980" height="1080"></canvas>
+    <canvas id="screenImage" ref="screenImage" class="hidden" width="234" height="357"></canvas>
     <canvas id="rili" ref="rili" class="hidden" width="600" height="600"></canvas>
     <canvas id="display" ref="display"></canvas>
   </div>
 </template>
 <script>
+import screenPic from '@/assets/images/CalendarBg/screen.png'
+import screenMaskPic from '@/assets/images/CalendarBg/Screenmask.png'
+import bgPic from '@/assets/images/CalendarBg/bg.png'
+import maskPic from '@/assets/images/CalendarBg/mask.png'
+import lightPic from '@/assets/images/CalendarBg/light.png'
+import caidaiPic from '@/assets/images/CalendarBg/caidai.png'
+import screenLightPic from '@/assets/images/CalendarBg/screenLight.png'
+import phoneLightPic from '@/assets/images/CalendarBg/phoneLight.png'
 export default {
   name: 'CalendarBg',
   data () {
     return {
+      screenPic,
+      screenMaskPic,
+      bgPic,
+      maskPic,
+      lightPic,
+      caidaiPic,
+      screenLightPic,
+      phoneLightPic,
       // 获取canvas
       cvs: '',
       ctx: '',
       display: '',
       displayCtx: '',
-      // screenImage: '',
-      // screenImageCtx: '',
+      screenImage: '',
+      screenImageCtx: '',
       rili: '',
       riliCtx: '',
       // 日历
@@ -34,101 +50,129 @@ export default {
       dayIndex: '',
       countDay: 30,
       row: 6,
-      isNum: null,
       monthCN: ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'],
       riliInterval: null,
-      // screenMask: '',
-      // screen: '',
+      screenMask: new Image(),
+      screen: new Image(),
       iv: null,
-      bg: '',
-      mask: '',
-      light: '',
-      caidai: '',
-      // screenLight: '',
-      phoneLight: '',
+      bg: new Image(),
+      mask: new Image(),
+      light: new Image(),
+      caidai: new Image(),
+      screenLight: new Image(),
+      phoneLight: new Image(),
       phoneText: '',
       noRili: false,
       // 颜色变化
-      targetColor: {},
-      currentColor: {},
-      lightColor: {},
+      targetColor: {
+        r: 80,
+        g: 120,
+        b: 169
+      },
+      currentColor: {
+        r: 80,
+        g: 120,
+        b: 169
+      },
+      lightColor: {
+        r: 0,
+        g: 34,
+        b: 77,
+        a: 0
+      },
       night: false,
       debug: false,
       time: null
     }
   },
+  mounted () {
+    this.cvs = this.$refs.cvs
+    this.ctx = this.$refs.cvs.getContext('2d')
+    this.display = this.$refs.display
+    this.displayCtx = this.$refs.display.getContext('2d')
+    this.screenImage = this.$refs.screenImage
+    this.screenImageCtx = this.$refs.screenImage.getContext('2d')
+    this.rili = this.$refs.rili
+    this.riliCtx = this.$refs.rili.getContext('2d')
+
+    this.riliInterval = setInterval(this.drawRili, 3600000)
+    this.drawRili()
+    // Canvas剪切蒙版实现
+    this.screenMask.src = this.screenMaskPic
+    this.screen.src = this.screenPic
+    this.iv = setInterval(() => {
+      if (screen.complete && this.screenMask.complete) {
+        this.screenImageCtx.drawImage(this.screen, -1041, -210, 1280, 720)
+        this.screenImageCtx.globalCompositeOperation = 'destination-atop'
+        this.screenImageCtx.drawImage(this.screenMask, 0, 0)
+        this.screenImageCtx.globalCompositeOperation = 'source-over'
+        clearInterval(this.iv)
+      }
+    }, 14)
+
+    this.bg.src = this.bgPic
+    this.mask.src = this.maskPic
+    this.light.src = this.lightPic
+    this.caidai.src = this.caidaiPic
+    this.screenLight.src = this.screenLightPic
+    this.phoneLight.src = this.phoneLightPic
+    this.phoneText = JSON.parse('[{"time":0,"text":"凌晨啦!"},{"time":6,"text":"早上好!"},{"time":8,"text":"上午好!"},{"time":11,"text":"你吃了吗"},{"time":13,"text":"下午好鸭!"},{"time":16,"text":"傍晚咯!"},{"time":19,"text":"晚安!"}]')
+    this.noRili = false
+    // 屏幕大小自适应
+    window.onresize = function () {
+      if (window.innerWidth / window.innerHeight > 1.8333333333333) {
+        this.display.width = window.innerWidth
+        this.display.height = window.innerWidth / 1980 * 1080
+
+        window.scrollTo(0, (window.innerHeight - 123) / 16)
+      } else {
+        this.display.width = window.innerHeight / 1080 * 1980
+        this.display.height = window.innerHeight
+      }
+    }
+    window.onresize()
+
+    window.wallpaperPropertyListener = {
+      applyUserProperties: function (properties) {
+        if (properties.screenFile) {
+          if (properties.screenFile.value) {
+            this.screen.src = 'file:///' + properties.screenFile.value
+            const iv1 = setInterval(() => {
+              if (this.screen.complete && this.screenMask.complete) {
+                this.screenImageCtx.clearRect(0, 0, 1000, 1000)
+                this.screenImageCtx.drawImage(this.screen, -1041, -210, 1280, 720)
+                this.screenImageCtx.globalCompositeOperation = 'destination-atop'
+                this.screenImageCtx.drawImage(this.screenMask, 0, 0)
+                this.screenImageCtx.globalCompositeOperation = 'source-over'
+                clearInterval(iv1)
+              }
+            }, 14)
+          }
+        }
+
+        if (properties.phoneText) {
+          if (properties.phoneText.value) {
+            this.phoneText = JSON.parse(properties.phoneText.value)
+          }
+        }
+
+        if (properties.disableRili) {
+          if (properties.disableRili.value) {
+            clearInterval(this.riliInterval)
+            this.noRili = true
+          } else {
+            this.riliInterval = setInterval(this.drawRili, 3600000)
+            this.drawRili()
+            this.noRili = false
+          }
+        }
+      }
+    }
+    window.requestAnimationFrame(this.render)
+  },
   methods: {
-    getConst () {
-      this.ctx = this.$refs.cvs.getContext('2d')
-      this.display = this.$refs.display
-      this.displayCtx = this.$refs.display.getContext('2d')
-      // this.screenImage = this.$refs.screenImage
-      // this.screenImageCtx = this.$refs.screenImage.getContext('2d')
-      this.rili = this.$refs.rili
-      this.riliCtx = this.$refs.rili.getContext('2d')
-
-      // this.screenMask = new Image()
-      // this.screenMask.src = '@/assets/images/CalendarBg/Screenmask.png'
-
-      // this.screen = new Image()
-      // this.screen.src = '@/assets/images/CalendarBg/screen.png'
-      // this.iv = setInterval(() => {
-      //   if (screen.complete && this.screenMask.complete) {
-      //     this.screenImageCtx.drawImage(this.screen, -1041, -210, 1280, 720)
-      //     this.screenImageCtx.globalCompositeOperation = 'destination-atop'
-      //     this.screenImageCtx.drawImage(this.screenMask, 0, 0)
-      //     this.screenImageCtx.globalCompositeOperation = 'source-over'
-      //     clearInterval(this.iv)
-      //   }
-      // }, 14)
-
-      // 加载图片
-      this.bg = new Image()
-      this.mask = new Image()
-      this.light = new Image()
-      this.caidai = new Image()
-      // this.screenLight = new Image()
-      this.phoneLight = new Image()
-      this.bg.src = '@/assets/images/CalendarBg/bg.png'
-      this.mask.src = '@/assets/images/CalendarBg/mask.png'
-      this.light.src = '@/assets/images/CalendarBg/light.png'
-      this.caidai.src = '@/assets/images/CalendarBg/caidai.png'
-      // this.screenLight.src = '@/assets/images/CalendarBg/screenLight.png'
-      this.phoneLight.src = '@/assets/images/CalendarBg/phoneLight.png'
-      this.phoneText = JSON.parse('[{"time":0,"text":"凌晨啦!"},{"time":6,"text":"早上好!"},{"time":8,"text":"上午好!"},{"time":11,"text":"你吃了吗"},{"time":13,"text":"下午好鸭!"},{"time":16,"text":"傍晚咯!"},{"time":19,"text":"晚安!"}]')
-
-      // 颜色变化
-      this.targetColor = {
-        r: 80,
-        g: 120,
-        b: 169
-      }
-      this.currentColor = {
-        r: 80,
-        g: 120,
-        b: 169
-      }
-      this.lightColor = {
-        r: 0,
-        g: 34,
-        b: 77,
-        a: 0
-      }
-    },
-    drawDate (txt, i, j) {
-      this.riliCtx.textAlign = 'center'
-      this.riliCtx.fillStyle = 'rgb(69,68,84)'
-      this.riliCtx.font = (this.cardSize / 1.5) + 'px Impact'
-      const yOffest = 3
-      if ((j === 0 || j === 6) && this.isNum.test(txt)) {
-        this.riliCtx.fillStyle = '#900'
-      }
-      this.riliCtx.fillText(txt.toString(), 45 + j * this.cardSize * 1.7 + this.cardSize / 1.18, 50 + i * this.cardSize + this.cardSize / 3 * 2 + yOffest)
-      if (txt === this.today) {
-        this.drawTodaybg(j, i)
-      }
-    },
     drawTodaybg (i, j) {
+      // console.log(this.riliCtx)
       this.riliCtx.save()
       this.riliCtx.beginPath()
       this.riliCtx.strokeStyle = '#900'
@@ -153,8 +197,22 @@ export default {
       this.riliCtx.closePath()
       this.riliCtx.restore()
     },
+    drawDate (txt, i, j) {
+      this.riliCtx.textAlign = 'center'
+      this.riliCtx.fillStyle = 'rgb(69,68,84)'
+      this.riliCtx.font = (this.cardSize / 1.5) + 'px Impact'
+      const yOffest = 3
+      const isNum = /^\d+(\d+)?$/
+      if ((j === 0 || j === 6) && isNum.test(txt)) {
+        this.riliCtx.fillStyle = '#900'
+      }
+      this.riliCtx.fillText(txt.toString(), 45 + j * this.cardSize * 1.7 + this.cardSize / 1.18, 50 + i * this.cardSize + this.cardSize / 3 * 2 + yOffest)
+      if (txt === this.today) {
+        this.drawTodaybg(j, i)
+      }
+    },
     drawRili () { // 画日历
-      this.getConst()
+      // console.log(this.riliCtx)
       this.riliCtx.clearRect(0, 0, 600, 600)
       this.date = new Date()
       this.year = this.date.getYear()
@@ -162,6 +220,7 @@ export default {
       this.today = this.date.getDate()
       this.week = this.date.getDay()
       this.wIdx = this.today % 7
+
       if (this.week >= this.wIdx) {
         this.firstDraw = this.week - this.wIdx + 1
       } else {
@@ -182,9 +241,6 @@ export default {
       if (7 - this.firstDraw + 7 * 4 < this.countDay) { // 确定表格行数，防止日期绘制不全
         this.row = 7
       }
-
-      this.isNum = /^\d+(\d+)?$/
-      // ?????
 
       this.riliCtx.fillStyle = 'rgb(69,68,84)'
       this.riliCtx.font = '900 26pt SimHei'
@@ -233,7 +289,6 @@ export default {
       return ('rgba(' + colorWithA.r.toString() + ',' + colorWithA.g.toString() + ',' + colorWithA.b.toString() + ',' + colorWithA.a.toString() + ')')
     },
     render () {
-      this.getConst()
       this.currentColor.r += (this.targetColor.r - this.currentColor.r) * 0.01
       this.currentColor.r = this.min(this.currentColor.r, 255)
       this.currentColor.r = this.max(this.currentColor.r, 0)
@@ -322,12 +377,12 @@ export default {
       }
 
       // 屏幕
-      // this.ctx.drawImage(this.screenImage, 0, 0)
-      // if (this.lightColor.a > 0) {
-      //   this.ctx.globalAlpha = this.lightColor.a / 0.7
-      //   this.ctx.drawImage(this.screenLight, 0, 0)
-      //   this.ctx.globalAlpha = 1
-      // }
+      this.ctx.drawImage(this.screenImage, 0, 0)
+      if (this.lightColor.a > 0) {
+        this.ctx.globalAlpha = this.lightColor.a / 0.7
+        this.ctx.drawImage(this.screenLight, 0, 0)
+        this.ctx.globalAlpha = 1
+      }
 
       this.night = true
       let greeting = '凌晨啦!'
@@ -357,59 +412,6 @@ export default {
       this.displayCtx.drawImage(this.$refs.cvs, 0, 0, this.display.width, this.display.height)
       window.requestAnimationFrame(this.render)
     }
-  },
-  mounted () {
-    this.riliInterval = setInterval(this.drawRili, 3600000)
-    this.drawRili()
-    window.onresize = function () { // 屏幕大小自适应
-      if (window.innerWidth / window.innerHeight > 1.8333333333333) {
-        this.display.width = window.innerWidth
-        this.display.height = window.innerWidth / 1980 * 1080
-
-        window.scrollTo(0, (window.innerHeight - 123) / 16)
-      } else {
-        this.display.width = window.innerHeight / 1080 * 1980
-        this.display.height = window.innerHeight
-      }
-    }
-    window.onresize()
-    window.wallpaperPropertyListener = {
-      applyUserProperties: function (properties) {
-        // if (properties.screenFile) {
-        //   if (properties.screenFile.value) {
-        //     this.screen.src = 'file:///' + properties.screenFile.value
-        //     const iv1 = setInterval(() => {
-        //       if (this.screen.complete && this.screenMask.complete) {
-        //         this.screenImageCtx.clearRect(0, 0, 1000, 1000)
-        //         this.screenImageCtx.drawImage(this.screen, -1041, -210, 1280, 720)
-        //         this.screenImageCtx.globalCompositeOperation = 'destination-atop'
-        //         this.screenImageCtx.drawImage(this.screenMask, 0, 0)
-        //         this.screenImageCtx.globalCompositeOperation = 'source-over'
-        //         clearInterval(iv1)
-        //       }
-        //     }, 14)
-        //   }
-        // }
-
-        if (properties.phoneText) {
-          if (properties.phoneText.value) {
-            this.phoneText = JSON.parse(properties.phoneText.value)
-          }
-        }
-
-        if (properties.disableRili) {
-          if (properties.disableRili.value) {
-            clearInterval(this.riliInterval)
-            this.noRili = true
-          } else {
-            this.riliInterval = setInterval(this.drawRili, 3600000)
-            this.drawRili()
-            this.noRili = false
-          }
-        }
-      }
-    }
-    // window.requestAnimationFrame(this.render)
   }
 }
 </script>
@@ -425,8 +427,6 @@ body {
 
 .hidden {
   display: none;
-  background-color:red;
-  height: calc(100vh - 60px);
 }
 
 #display {
