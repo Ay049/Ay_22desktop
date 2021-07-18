@@ -1,7 +1,7 @@
 <template>
   <div class="page1">
     <div class="img_box">
-      <img src="~@/assets/images/ppt/code.png" alt="">
+      <img src="~@/assets/images/welcome/code.png" alt="">
     </div>
     <p>
       天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣。

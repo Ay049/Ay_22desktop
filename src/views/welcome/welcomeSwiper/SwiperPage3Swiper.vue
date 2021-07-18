@@ -15,9 +15,9 @@
 
 <script>
 // 图片需要以这种形式导入
-import pic1 from '@/assets/images/ppt/3.jpg'
-import pic2 from '@/assets/images/ppt/4.jpg'
-import pic3 from '@/assets/images/ppt/07.jpg'
+import pic1 from '@/assets/images/welcome/3.jpg'
+import pic2 from '@/assets/images/welcome/4.jpg'
+import pic3 from '@/assets/images/welcome/screen.png'
 export default {
   name: 'Page3swiper',
   data () {

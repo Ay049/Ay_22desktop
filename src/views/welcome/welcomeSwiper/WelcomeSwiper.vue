@@ -74,7 +74,7 @@ export default {
 <style>
   /* 轮播图整体背景 */
   .mySwiper {
-    background: url('~@/assets/images/ppt/黑夜星空背景.jpg') no-repeat;
+    background: url('~@/assets/images/welcome/黑夜星空背景.jpg') no-repeat;
     background-size: cover;
     color: rgb(255, 255, 255);
   }

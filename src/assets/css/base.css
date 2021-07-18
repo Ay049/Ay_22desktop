@@ -43,7 +43,7 @@
   --color-high-text: #ff5777;
   /* 设置背景色 */
   --color-tint: #ff8198;
-  --color-background: #fff;
+  --color-background: #ccc;
   --font-size: 14px;
   --line-height: 1.5;
 }
@@ -63,6 +63,8 @@ body {
   -webkit-tap-highlight-color: transparent;
   /* webkit是苹果浏览器引擎，tap点击，highlight背景高亮，color颜色，颜色用数值调节 */
   background: var(--color-background);
+  margin: 0;
+  padding: 0;
   color: var(--color-text);
   width: 100%;
 }
