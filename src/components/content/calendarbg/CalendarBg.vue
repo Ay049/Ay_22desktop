@@ -100,8 +100,9 @@ export default {
     // Canvas剪切蒙版实现
     this.screenMask.src = this.screenMaskPic
     this.screen.src = this.screenPic
+    // 左上角小电脑的桌面壁纸
     this.iv = setInterval(() => {
-      if (screen.complete && this.screenMask.complete) {
+      if (this.screen.complete && this.screenMask.complete) {
         this.screenImageCtx.drawImage(this.screen, -1041, -210, 1280, 720)
         this.screenImageCtx.globalCompositeOperation = 'destination-atop'
         this.screenImageCtx.drawImage(this.screenMask, 0, 0)
@@ -132,47 +133,10 @@ export default {
     }
     window.onresize()
 
-    window.wallpaperPropertyListener = {
-      applyUserProperties: function (properties) {
-        if (properties.screenFile) {
-          if (properties.screenFile.value) {
-            this.screen.src = 'file:///' + properties.screenFile.value
-            const iv1 = setInterval(() => {
-              if (this.screen.complete && this.screenMask.complete) {
-                this.screenImageCtx.clearRect(0, 0, 1000, 1000)
-                this.screenImageCtx.drawImage(this.screen, -1041, -210, 1280, 720)
-                this.screenImageCtx.globalCompositeOperation = 'destination-atop'
-                this.screenImageCtx.drawImage(this.screenMask, 0, 0)
-                this.screenImageCtx.globalCompositeOperation = 'source-over'
-                clearInterval(iv1)
-              }
-            }, 14)
-          }
-        }
-
-        if (properties.phoneText) {
-          if (properties.phoneText.value) {
-            this.phoneText = JSON.parse(properties.phoneText.value)
-          }
-        }
-
-        if (properties.disableRili) {
-          if (properties.disableRili.value) {
-            clearInterval(this.riliInterval)
-            this.noRili = true
-          } else {
-            this.riliInterval = setInterval(this.drawRili, 3600000)
-            this.drawRili()
-            this.noRili = false
-          }
-        }
-      }
-    }
     window.requestAnimationFrame(this.render)
   },
   methods: {
     drawTodaybg (i, j) {
-      // console.log(this.riliCtx)
       this.riliCtx.save()
       this.riliCtx.beginPath()
       this.riliCtx.strokeStyle = '#900'
