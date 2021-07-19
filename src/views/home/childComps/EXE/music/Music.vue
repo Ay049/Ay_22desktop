@@ -1,6 +1,5 @@
 <template>
   <div class="project">
-    <div class="fixed-top fff"><MainNavBar></MainNavBar></div>
     <div class="w">
       <div class="AyMusic">
         <div class="box">
@@ -103,13 +102,9 @@
 
 <script>
 // @ is an alias to /src
-import MainNavBar from '@/components/content/mainnavbar/MainNavBar.vue'
 import { getQuery, getMusicUrl, getPicUrl, getIds, getMvid } from '@/network/music.js'
 export default {
   name: 'Music',
-  components: {
-    MainNavBar
-  },
   data () {
     return {
       query: '',
@@ -195,9 +190,6 @@ export default {
   }
 }
 </script>
-<style src="@/assets/css/music.css" scoped></style>
+<style src="@/assets/css/home/exe/music/music.css" scoped></style>
 <style scoped>
-.w {
-  padding-top: 20px;
-}
 </style>

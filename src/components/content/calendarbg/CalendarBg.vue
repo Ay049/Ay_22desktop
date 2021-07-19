@@ -382,13 +382,13 @@ export default {
 
 <style>
 body {
-  background-color: #000;
   margin: 0;
   padding: 0;
   overflow: hidden;
+}
+.canvas_body {
   text-align: center;
 }
-
 .hidden {
   display: none;
 }

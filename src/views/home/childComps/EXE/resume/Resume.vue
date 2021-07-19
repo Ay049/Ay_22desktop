@@ -1,7 +1,5 @@
 <template>
   <div class="resume_box">
-    <div class="fixed-top fff"><MainNavBar></MainNavBar></div>
-    <li>我的简历</li>
     <div class="w fff">
       <div class="left_box">
         <h2 class="resume">RESUME</h2>
@@ -92,12 +90,8 @@
 
 <script>
 // @ is an alias to /src
-import MainNavBar from '@/components/content/mainnavbar/MainNavBar.vue'
 export default {
-  name: 'Resume',
-  components: {
-    MainNavBar
-  }
+  name: 'Resume'
 }
 </script>
 
@@ -106,8 +100,13 @@ export default {
 </style>
 <style scoped>
 .resume_box {
-  background-color: #eee;
-  width: 800px;
-  margin: 0 auto;
+  height: 600px;
+  overflow: auto;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
 }
 </style>

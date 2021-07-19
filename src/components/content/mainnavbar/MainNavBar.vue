@@ -15,31 +15,10 @@
           </div>
         </template>
       </NavBarItem>
-      <NavBarItem path="/project">
-        <template #item-text>
-          <div>
-            My Project
-          </div>
-        </template>
-      </NavBarItem>
-      <NavBarItem path="/music">
-        <template #item-text>
-          <div>
-            Music
-          </div>
-        </template>
-      </NavBarItem>
       <NavBarItem path="/resume">
         <template #item-text>
           <div>
             Resume
-          </div>
-        </template>
-      </NavBarItem>
-      <NavBarItem path="/selfstudy">
-        <template #item-text>
-          <div>
-            SelfStudy
           </div>
         </template>
       </NavBarItem>
@@ -56,8 +35,8 @@
 
 <script>
 // 导入导航栏模块
-import NavBar from '@/components/content/mainnavbar/NavBar.vue'
-import NavBarItem from '@/components/content/mainnavbar/NavBarItem.vue'
+import NavBar from './NavBar.vue'
+import NavBarItem from './NavBarItem.vue'
 
 export default {
   name: 'NavTabBar',

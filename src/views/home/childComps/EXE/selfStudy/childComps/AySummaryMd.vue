@@ -4300,7 +4300,5 @@ npm install highlight<span class="token punctuation">.</span><span class="token 
 </div>
       </div>
 </template>
-<script>
 
-</script>
 <style src="@/assets/css/md.css" scoped></style>

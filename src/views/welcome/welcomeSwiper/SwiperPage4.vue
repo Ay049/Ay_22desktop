@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import SwiperLoading from '@/components/content/loading/Loading.vue'
+import SwiperLoading from '@/components/common/loading/Loading.vue'
 export default {
   name: 'page04',
   components: {

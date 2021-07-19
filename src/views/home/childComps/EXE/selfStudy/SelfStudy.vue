@@ -1,6 +1,5 @@
 <template>
   <div class="self_study">
-    <div class="fixed-top fff"><MainNavBar></MainNavBar></div>
     <div class="w">
       <div class="outline">
         <AyOutlineMd></AyOutlineMd>
@@ -14,14 +13,12 @@
 
 <script>
 // @ is an alias to /src
-import MainNavBar from '@/components/content/mainnavbar/MainNavBar.vue'
 import AySummaryMd from './childComps/AySummaryMd.vue'
 import AyOutlineMd from './childComps/AyOutlineMd.vue'
 
 export default {
   name: 'SelfStudy',
   components: {
-    MainNavBar,
     AySummaryMd,
     AyOutlineMd
   }
@@ -30,19 +27,20 @@ export default {
 <style scoped>
 .w {
   position: relative;
-  background-color: rgb(191, 237, 255);
 }
 .outline {
   position: fixed;
-  top: 55px;
+  top: 0;
   left: 0;
+  bottom: 0;
   width: 200px;
-  height: calc(100vh - 55px);
+  margin-top: 36px;
+  height: 600px;
   overflow: auto;
+  background-color: #94e1ff;
 }
 .outline > ul {
   list-style: none;
-  background-color: #94e1ff;
 }
 
 .md-Window {

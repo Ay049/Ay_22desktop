@@ -18,5 +18,5 @@ export default {
 
 <style scoped>
 /* 引入通用的css样式 */
-@import "~@/assets/css/base.css";
+@import "~@/assets/css/base/base.css";
 </style>
