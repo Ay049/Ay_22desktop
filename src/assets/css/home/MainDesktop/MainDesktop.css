@@ -1,0 +1,63 @@
+  .ico-text-s {
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  .music-exe,
+  .resume-exe,
+  .txt-exe,
+  .AndroidSimulator-exe {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .menu-bar {
+    width: 100%;
+    font-size: 22px;
+    padding-left: 20px;
+    overflow: hidden;
+    border-bottom: 1px #ccc solid;
+    background-color: #f5f5f5;
+  }
+
+  .music-xx {
+    color: #fff;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+  }
+
+  .resume-xx,
+  .txt-xx,
+  .AndroidSimulator-xx {
+    padding-right: 10px;
+    float: right;
+  }
+
+  .resume-bd {
+    height: 600px;
+    overflow-y: auto;
+  }
+
+  .Txt-exe {
+    width: 800px;
+    overflow: hidden;
+  }
+
+  .txt-bd {
+    width: 800px;
+    height: 600px;
+    overflow: auto;
+    position: relative;
+    background-color: rgb(191, 237, 255);
+  }
+
+  .AndroidSimulator-bd {
+    width: 357px;
+    height: 667px;
+    overflow: hidden;
+    background-color: #fff;
+  }

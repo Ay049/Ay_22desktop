@@ -1,113 +1,28 @@
 <template>
-  <div class="resume_box">
+  <div>
     <div class="fixed-top fff"><MainNavBar></MainNavBar></div>
-    <li>我的简历</li>
-    <div class="w fff">
-      <div class="left_box">
-        <h2 class="resume">RESUME</h2>
-        <div class="my_photo">我的照片</div>
-        <h2 class="resume">虞 辉</h2>
-        <div class="my_job">求职意向 : 初级前端开发</div>
-        <h2 class="my_message">基本信息</h2>
-        <h6>出生年月: 1996. 05</h6>
-        <h6>联系电话: 155-5815-1096</h6>
-        <h6>现居地址: 浙江·杭州</h6>
-        <h6>邮箱: 15558151096@163.com</h6>
-        <h2 class="my_message">我的微信</h2>
-        <div class="my_weixin">
-          <img src="~@/assets/images/resume/my_weixin.jpg">
-        </div>
-      </div>
-      <!-- 右边的模块 -->
-      <div class="right_box">
-          <!-- 教育背景 -->
-          <div class="nav">
-            <h3>教育背景</h3>
-          </div>
-          <ul class="ul1">
-            <li class="li1">2017.09~2018.06 陆军航空兵学院</li>
-            <li class="li1">2014.09~2017.06 杭州职业技术学院</li>
-          </ul>
-          <!-- 个人开发的项目 -->
-          <div class="nav">
-            <h3>个人开发的项目</h3>
-          </div>
-          <ul class="ul1">
-            <li class="li1">
-              <a href="/welcome">
-                ⭐个人网站 ( Vue3 模块化开发 )
-              </a>
-            </li>
-            <li class="li1">
-              <a href="#">
-                仿品优购项目 ( 无接口的静态页面 PC端)
-              </a>
-            </li>
-            <li class="li1">
-              <a href="#">
-                ShoppingMall项目 ( 有接口的响应式页面 移动端 Vue2项目升级)
-              </a>
-            </li>
-          </ul>
-          <!-- 工作经历 -->
-          <div class="nav">
-            <h3>工作经历</h3>
-          </div>
-          <ul class="ul1">
-            <li class="li1">自学前端 2021.01~至今</li>
-            <li class="li2">工作描述: 学习</li>
-            <li class="li1">浙江万马联合控股集团有限公司 2020.04~2020.10</li>
-            <li class="li2">职位: 设备工程师 &nbsp;&nbsp;&nbsp;&nbsp; 工作描述: 负责公司设备日常维护</li>
-            <li class="li1">服兵役 2018.06~2019.09</li>
-            <li class="li2">工作描述: /</li>
-          </ul>
-          <!-- 技能特长 -->
-          <div class="nav">
-            <h3>个人评价</h3>
-          </div>
-          <ul class="ul2">
-            <li>
-              熟练掌握HTML、CSS、JavaScript
-            </li>
-            <li>
-              能够使用Vue框架进行模块化开发
-            </li>
-            <li>
-              能够使用Node.js、Webpack、GitHub、Bootstrap、Swiper、Windows PowerShell
-            </li>
-            <li>
-              了解JQuery、MongoDB
-            </li>
-            <li>
-              对 Postman、PhotoShop、Typora等软件能够进行满足日常开发的使用
-            </li>
-            <li>
-              对程序技术充满热情,较好的自学能力,能够解决自己开发过程中遇到的bug,喜欢通过学习来不断提升自己,较好的抗压和自律能力.
-            </li>
-          </ul>
-      </div>
-    </div>
+    <div class="resume_box"><ResumeContent></ResumeContent></div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import MainNavBar from '@/components/content/mainnavbar/MainNavBar.vue'
+import MainNavBar from './MainNavBar.vue'
+import ResumeContent from '@/components/content/resume/ResumeContent.vue'
 export default {
   name: 'Resume',
   components: {
-    MainNavBar
+    MainNavBar,
+    ResumeContent
   }
 }
 </script>
 
-<style src="@/assets/css/home/exe/resume/resume.css" scoped>
-/* 引入外部css需要这种方式,不然会污染全局 */
-</style>
 <style scoped>
 .resume_box {
-  background-color: #eee;
+  padding-top: 55px;
   width: 800px;
   margin: 0 auto;
+  overflow-y: auto;
 }
 </style>

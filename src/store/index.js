@@ -1,12 +1,19 @@
 import { createStore } from 'vuex'
+import mutations from './sStore/mutations'
+import actions from './sStore/actions'
+import getters from './sStore/getters' // ?
 
-export default createStore({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+const state = {
+  cartList: []
+}
+
+const store = createStore({
+  state,
+  mutations,
+  actions,
+  getters,
   modules: {
   }
 })
+
+export default store

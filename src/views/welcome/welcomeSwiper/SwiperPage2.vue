@@ -5,7 +5,7 @@
           简单的浏览Ay的项目 ?
         </span>
       </div>
-      <a href="/home" class="skip_btn" v-show="isSkipShow">No, Skip</a>
+      <a href="#/home" class="skip_btn" v-show="isSkipShow">No, Skip</a>
   </div>
 </template>
 

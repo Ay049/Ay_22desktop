@@ -156,6 +156,29 @@
 
 <script>
 export default {
+  data () {
+    return {
+    }
+  },
+  methods: {
+  },
+  mounted () {
+    // eslint-disable-next-line
+    goAnchor = (selector) => { // 好他妈的奇怪,锚点功能依靠此bug实现
+      // 移动距离
+      let top = 0
+      // 当前滚动条位置
+      const scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop
+      // 若为指定距离
+      if (typeof selector === 'number') {
+        top = selector - scrollTop
+      } else {
+        const anchor = document.querySelector(selector) || { offsetTop: 0 }
+        top = anchor.offsetTop - scrollTop
+      }
+      window.scrollBy({ top, behavior: 'smooth' })
+    }
+  }
 }
 </script>
 

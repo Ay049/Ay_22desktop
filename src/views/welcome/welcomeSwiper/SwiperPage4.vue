@@ -28,7 +28,7 @@ export default {
           this.timeOver--
         } else {
           clearInterval(this.playTimer)
-          window.location.href = '/home'
+          window.location.href = '#/home'
         }
       }, 800)
     }
