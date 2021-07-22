@@ -191,5 +191,3 @@ export default {
 }
 </script>
 <style src="@/assets/css/home/exe/music/music.css" scoped></style>
-<style scoped>
-</style>

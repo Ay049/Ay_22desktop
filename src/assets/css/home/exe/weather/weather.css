@@ -1,0 +1,59 @@
+.weather-box {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  background-size: cover;
+}
+
+.city-search {
+  padding-top: 8px;
+}
+.city-search>input {
+  outline-style: none ;
+  border-width: 0;
+  padding-left: 5px;
+  border-radius: 5px;
+}
+.city-search>button {
+  margin-left: 2px;
+  color:white;/*字体颜色*/
+  background-color: cornflowerblue;/*按钮背景颜色*/
+  border-radius: 3px;/*让按钮变得圆滑一点*/
+  border-width: 0;/*消去按钮丑的边框*/
+  outline: none;/*取消轮廓*/
+  font-family: KaiTi;/*字体设置为楷体*/
+  font-size: 17px;/*设置字体大小*/
+  text-align: center;/*字体居中*/
+}
+
+.iscity {
+  font-size: 30px;
+  padding-top: 15px;
+}
+.iswendu {
+  font-size: 45px;
+}
+.iswendu>span{
+  font-size: 30px;
+}
+.istianqi {
+  font-size: 25px;
+}
+.isganmao {
+  font-size: 18px;
+}
+.city-mes-box {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+.city-mes {
+  display: flex;
+  list-style: none;
+}
+.city-mes>li {
+  text-align: center;
+  flex: 1;
+}

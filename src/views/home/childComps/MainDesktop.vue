@@ -46,6 +46,28 @@
           </template>
         </MyDesktopIconitem>
 
+        <MyDesktopIconitem @dblclick="openRetroSnaker">
+          <template #item-icon>
+            <img src="~@/assets/images/MyIco/贪吃蛇.png" alt="" />
+          </template>
+          <template #item-text>
+            <div>
+              贪吃蛇
+            </div>
+          </template>
+        </MyDesktopIconitem>
+
+        <MyDesktopIconitem @dblclick="openWeather">
+          <template #item-icon>
+            <img src="~@/assets/images/MyIco/天气.png" alt="" />
+          </template>
+          <template #item-text>
+            <div>
+              天气
+            </div>
+          </template>
+        </MyDesktopIconitem>
+
         <MyDesktopIconitem @dblclick="openxxx">
           <template #item-icon>
             <img src="~@/assets/images/MyIco/计算器.png" alt="" />
@@ -59,33 +81,11 @@
 
         <MyDesktopIconitem @dblclick="openxxx">
           <template #item-icon>
-            <img src="~@/assets/images/MyIco/天气.png" alt="" />
-          </template>
-          <template #item-text>
-            <div>
-              天气
-            </div>
-          </template>
-        </MyDesktopIconitem>
-
-        <MyDesktopIconitem @dblclick="openxxx">
-          <template #item-icon>
             <img src="~@/assets/images/MyIco/纸牌游戏.png" alt="" />
           </template>
           <template #item-text>
             <div>
               纸牌
-            </div>
-          </template>
-        </MyDesktopIconitem>
-
-        <MyDesktopIconitem @dblclick="openRetroSnaker">
-          <template #item-icon>
-            <img src="~@/assets/images/MyIco/贪吃蛇.png" alt="" />
-          </template>
-          <template #item-text>
-            <div>
-              贪吃蛇
             </div>
           </template>
         </MyDesktopIconitem>
@@ -144,6 +144,15 @@
       </div>
       <div class="RetroSnaker-bd"><RetroSnaker></RetroSnaker></div>
     </div>
+
+    <!-- 天气 -->
+    <div class="Weather-exe" v-if="WeatherShow">
+      <div class="menu-bar">
+        <span>今日天气</span>
+        <span @click="CloseWeatherExe" class="Weather-xx">X</span>
+      </div>
+      <div class="Weather-bd"><Weather></Weather></div>
+    </div>
   </div>
 </template>
 
@@ -156,6 +165,7 @@ import SelfStudyTxt from './EXE/selfStudy/SelfStudy.vue'
 import Resume from './EXE/resume/Resume.vue'
 import AndroidSimulator from './EXE/AndroidSimulator/AndroidSimulator.vue'
 import RetroSnaker from './EXE/RetroSnaker/RetroSnaker.vue'
+import Weather from './EXE/weather/Weather.vue'
 export default {
   name: 'MainDesktop',
   components: {
@@ -165,7 +175,8 @@ export default {
     SelfStudyTxt,
     Resume,
     AndroidSimulator,
-    RetroSnaker
+    RetroSnaker,
+    Weather
   },
   data () {
     return {
@@ -174,7 +185,8 @@ export default {
       TxtShow: false,
       ResumeShow: false,
       AndroidSimulatorShow: false,
-      RetroSnakerShow: false
+      RetroSnakerShow: false,
+      WeatherShow: false
     }
   },
   methods: {
@@ -222,6 +234,13 @@ export default {
     },
     CloseRetroSnakerExe () {
       this.RetroSnakerShow = false
+    },
+    // 天气
+    openWeather () {
+      this.WeatherShow = true
+    },
+    CloseWeatherExe () {
+      this.WeatherShow = false
     }
   }
 }

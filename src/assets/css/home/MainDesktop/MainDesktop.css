@@ -14,7 +14,8 @@
   .resume-exe,
   .txt-exe,
   .AndroidSimulator-exe,
-  .RetroSnaker-exe {
+  .RetroSnaker-exe,
+  .Weather-exe {
     position: absolute;
     top: 10%;
     left: 50%;
@@ -42,7 +43,8 @@
   .resume-xx,
   .txt-xx,
   .AndroidSimulator-xx,
-  .RetroSnaker-xx {
+  .RetroSnaker-xx,
+  .Weather-xx {
     padding-right: 10px;
     float: right;
   }
@@ -75,6 +77,11 @@
     width: 600px;
     height: 452px;
     background-color: #1e1e1e;
+  }
+  .Weather-bd {
+    width: 600px;
+    height: 400px;
+    background-color: skyblue;
   }
   /* 正在开发中样式 */
   .doing-exe {

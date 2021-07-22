@@ -75,7 +75,6 @@ export default {
       this.body = []
       this.scvs = ''
       this.timer = ''
-
       this.init()
     },
     init () {
