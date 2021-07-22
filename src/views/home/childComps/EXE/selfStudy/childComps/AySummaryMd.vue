@@ -2,7 +2,8 @@
       <div class="mume markdown-preview  ">
       <div><h2 class="mume-header" id="%E5%BA%8F%E8%A8%80">&#x5E8F;&#x8A00;</h2>
 
-<p><strong>&#x6B64;&#x4E3A;&#x4E2A;&#x4EBA;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x800C;&#x975E;&#x5B98;&#x65B9;&#x6587;&#x6863;,&#x5177;&#x4F53;&#x529F;&#x80FD;&#x517C;&#x5BB9;&#x7B49;&#x95EE;&#x9898;&#x8FD8;&#x662F;&#x5F97;&#x8981;&#x67E5;&#x5B98;&#x65B9;&#x6587;&#x6863;</strong></p>
+<p><strong>&#x8FD9;&#x662F;&#x4E2A;&#x4EBA;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x800C;&#x975E;&#x5B98;&#x65B9;&#x6587;&#x6863;,&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x4E2A;&#x4EBA;&#x5B66;&#x4E60;&#x77E5;&#x8BC6;&#x70B9;&#x7684;&#x8BB0;&#x5F55;,&#x5177;&#x4F53;&#x529F;&#x80FD;&#x517C;&#x5BB9;&#x7B49;&#x95EE;&#x9898;&#x8FD8;&#x662F;&#x5F97;&#x8981;&#x67E5;&#x5B98;&#x65B9;&#x6587;&#x6863;,&#x5728;&#x5F00;&#x53D1;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;&#x4E0D;&#x8BB0;&#x5F55;&#x5728;&#x6B64;&#x6587;&#x6863;</strong></p>
+
 <h2 class="mume-header" id="html">HTML</h2>
 
 <h4 class="mume-header" id="%E6%A0%87%E7%AD%BE">&#x6807;&#x7B7E;</h4>
@@ -4295,6 +4296,83 @@ npm install highlight<span class="token punctuation">.</span><span class="token 
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
 </pre></li>
 </ul>
+</li>
+</ul>
+<h2 class="mume-header" id="%E6%8B%93%E5%B1%95">&#x62D3;&#x5C55;</h2>
+
+<h4 class="mume-header" id="%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84">&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;</h4>
+
+<ul>
+<li>
+<p>&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#x5C31;&#x662F;&#x6570;&#x7EC4;&#x5D4C;&#x5957;,&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x5757;1&#x6240;&#x793A;: a&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x5728;for&#x5FAA;&#x73AF;&#x540E;&#x88AB;&#x8D4B;&#x503C;&#x4E3A;b&#x6570;&#x7EC4;,&#x5FAA;&#x73AF;&#x7ED3;&#x675F;&#x540E; a&#x6570;&#x7EC4;&#x53D8;&#x4E3A;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;</p>
+</li>
+<li>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token comment">// &#x5148;&#x58F0;&#x660E;&#x4E00;&#x7EF4;</span>
+<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;a&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;b&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;c&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;d&apos;</span><span class="token punctuation">]</span> <span class="token comment">// &#x5148;&#x58F0;&#x660E;&#x4E00;&#x7EF4;</span>
+<span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> a<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> b
+<span class="token punctuation">}</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+<span class="token comment">// [Array(4), Array(4), Array(4), Array(4), Array(4)]</span>
+<span class="token comment">// &#x5C55;&#x5F00;Array(4) &#x5C31;&#x662F; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// &#x7B2C;&#x4E09;&#x884C;&#x7B2C;4&#x4E2A; &#x6253;&#x5370;d</span>
+</pre></li>
+<li>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token comment">// &#x672A;&#x77E5;&#x6570;&#x7EC4;&#x957F;&#x5EA6;&#x65B9;&#x6CD5;</span>
+<span class="token keyword">let</span> myarr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//&#x5148;&#x58F0;&#x660E;&#x4E00;&#x7EF4; </span>
+<span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//&#x4E00;&#x7EF4;&#x957F;&#x5EA6;&#x4E3A;5</span>
+  myarr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//&#x518D;&#x58F0;&#x660E;&#x4E8C;&#x7EF4; </span>
+  <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//&#x4E8C;&#x7EF4;&#x957F;&#x5EA6;&#x4E3A;4</span>
+    myarr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> i <span class="token operator">+</span> j <span class="token comment">// &#x8D4B;&#x503C;&#xFF0C;&#x6BCF;&#x4E2A;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x7684;&#x503C;&#x4E3A;i+j</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre></li>
+<li>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token comment">// &#x8C03;&#x7528;</span>
+<span class="token comment">// &#x7C7B;&#x4F3C;&#x8868;&#x683C; a[m][n]   m&#x884C; n&#x5217;</span>
+<span class="token comment">// &#x4F8B; : &#x6C42;&#x5143;&#x7D20; a[2][3] &#x5728;&#x77E9;&#x9635;array[5][4]&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;</span>
+<span class="token comment">// &#x516C;&#x5F0F;: a[i][j]  array[m][n]</span>
+<span class="token comment">// &#x4F4D;&#x7F6E;&#x4E3A; i*n+j+1</span>
+a<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token comment">// &#x5373;:a&#x5728;3&#x884C;4&#x5217; ==&gt; A2,d </span>
+<span class="token comment">// i*n+j+1 =&gt; 2*4+3+1=12</span>
+</pre></li>
+<li>
+<table>
+<thead>
+<tr>
+<th>A0,a</th>
+<th>A0,b</th>
+<th>A0,c</th>
+<th>A0,d</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1,a</td>
+<td>A1,b</td>
+<td>A1,c</td>
+<td>A1,d</td>
+</tr>
+<tr>
+<td>A2,a</td>
+<td>A2,b</td>
+<td>A2,c</td>
+<td>A2,d</td>
+</tr>
+<tr>
+<td>A3,a</td>
+<td>A3,b</td>
+<td>A3,c</td>
+<td>A3,d</td>
+</tr>
+<tr>
+<td>A4,a</td>
+<td>A4,b</td>
+<td>A4,c</td>
+<td>A4,d</td>
+</tr>
+</tbody>
+</table>
 </li>
 </ul>
 </div>

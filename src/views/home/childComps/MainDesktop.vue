@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="icon">
-      <MyDesktopIcon>
+    <div>
+      <MyDesktopIcon class="icon">
         <MyDesktopIconitem @dblclick="openMusic">
           <template #item-icon>
             <img src="~@/assets/images/MyIco/音乐-01.png" alt="" />
@@ -12,6 +12,7 @@
             </div>
           </template>
         </MyDesktopIconitem>
+
         <MyDesktopIconitem @dblclick="openTxt">
           <template #item-icon>
             <img src="~@/assets/images/MyIco/记事本-03.png" alt="" />
@@ -22,6 +23,7 @@
             </div>
           </template>
         </MyDesktopIconitem>
+
         <MyDesktopIconitem @dblclick="openResume">
           <template #item-icon>
             <img src="~@/assets/images/MyIco/简历.png" alt="" />
@@ -32,6 +34,7 @@
             </div>
           </template>
         </MyDesktopIconitem>
+
         <MyDesktopIconitem @dblclick="openAndroidSimulator">
           <template #item-icon>
             <img src="~@/assets/images/MyIco/手机.png" alt="" />
@@ -42,9 +45,60 @@
             </div>
           </template>
         </MyDesktopIconitem>
+
+        <MyDesktopIconitem @dblclick="openxxx">
+          <template #item-icon>
+            <img src="~@/assets/images/MyIco/计算器.png" alt="" />
+          </template>
+          <template #item-text>
+            <div>
+              计算器
+            </div>
+          </template>
+        </MyDesktopIconitem>
+
+        <MyDesktopIconitem @dblclick="openxxx">
+          <template #item-icon>
+            <img src="~@/assets/images/MyIco/天气.png" alt="" />
+          </template>
+          <template #item-text>
+            <div>
+              天气
+            </div>
+          </template>
+        </MyDesktopIconitem>
+
+        <MyDesktopIconitem @dblclick="openxxx">
+          <template #item-icon>
+            <img src="~@/assets/images/MyIco/纸牌游戏.png" alt="" />
+          </template>
+          <template #item-text>
+            <div>
+              纸牌
+            </div>
+          </template>
+        </MyDesktopIconitem>
+
+        <MyDesktopIconitem @dblclick="openRetroSnaker">
+          <template #item-icon>
+            <img src="~@/assets/images/MyIco/贪吃蛇.png" alt="" />
+          </template>
+          <template #item-text>
+            <div>
+              贪吃蛇
+            </div>
+          </template>
+        </MyDesktopIconitem>
       </MyDesktopIcon>
     </div>
-
+    <!-- 开发中 -->
+    <div class="doing-exe" v-if="doingShow">
+      <span>正在开发中</span>
+      <div @click="CloseDoingExe" class="doing-xx">X</div>
+      <div class="doing-bd">
+        <img src="~@/assets/images/MyIco/doing.jpg" alt="别催了,在敲了哇 T - T">
+      </div>
+    </div>
     <!-- 音乐 -->
     <div class="music-exe" v-if="musicShow">
       <div @click="CloseMusicExe" class="music-xx">X</div>
@@ -81,6 +135,15 @@
       </div>
       <div class="AndroidSimulator-bd"><AndroidSimulator></AndroidSimulator></div>
     </div>
+
+    <!-- 贪吃蛇 -->
+    <div class="RetroSnaker-exe" v-if="RetroSnakerShow">
+      <div class="menu-bar">
+        <span>贪吃蛇</span>
+        <span @click="CloseRetroSnakerExe" class="RetroSnaker-xx">X</span>
+      </div>
+      <div class="RetroSnaker-bd"><RetroSnaker></RetroSnaker></div>
+    </div>
   </div>
 </template>
 
@@ -92,7 +155,7 @@ import Music from './EXE/music/Music.vue'
 import SelfStudyTxt from './EXE/selfStudy/SelfStudy.vue'
 import Resume from './EXE/resume/Resume.vue'
 import AndroidSimulator from './EXE/AndroidSimulator/AndroidSimulator.vue'
-
+import RetroSnaker from './EXE/RetroSnaker/RetroSnaker.vue'
 export default {
   name: 'MainDesktop',
   components: {
@@ -101,43 +164,64 @@ export default {
     Music,
     SelfStudyTxt,
     Resume,
-    AndroidSimulator
+    AndroidSimulator,
+    RetroSnaker
   },
   data () {
     return {
+      doingShow: false,
       musicShow: false,
       TxtShow: false,
       ResumeShow: false,
-      AndroidSimulatorShow: false
+      AndroidSimulatorShow: false,
+      RetroSnakerShow: false
     }
   },
   methods: {
+    // 开发中
+    openxxx () {
+      this.doingShow = true
+    },
+    CloseDoingExe () {
+      this.doingShow = false
+    },
+    // 音乐
     openMusic () {
       this.musicShow = true
     },
-    openTxt () {
-      this.TxtShow = true
-    },
-    openResume () {
-      this.ResumeShow = true
-    },
-    openAndroidSimulator () {
-      this.AndroidSimulatorShow = true
-      window.location.href = '#/home/shome'
-    },
     CloseMusicExe () {
       this.musicShow = false
+    },
+    // 笔记
+    openTxt () {
+      this.TxtShow = true
     },
     CloseTxtExe () {
       this.TxtShow = false
       window.location.href = ''
     },
+    // 简历
+    openResume () {
+      this.ResumeShow = true
+    },
     CloseResumeExe () {
       this.ResumeShow = false
+    },
+    // 模拟器
+    openAndroidSimulator () {
+      this.AndroidSimulatorShow = true
+      window.location.href = '#/home/shome'
     },
     CloseAndroidSimulatorExe () {
       this.AndroidSimulatorShow = false
       window.location.href = ''
+    },
+    // 贪吃蛇
+    openRetroSnaker () {
+      this.RetroSnakerShow = true
+    },
+    CloseRetroSnakerExe () {
+      this.RetroSnakerShow = false
     }
   }
 }

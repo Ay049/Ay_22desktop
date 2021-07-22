@@ -13,7 +13,7 @@ export default {
 #Desktop-ico {
   font-size: 16px;
   color: #fff;
-  padding-top: 20px;
+  /* padding-top: 20px; */
   text-shadow: black 1px 1px 1px;
 }
 </style>

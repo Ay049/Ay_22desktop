@@ -1,12 +1,20 @@
+  .icon {
+    height: 100vh;
+    display: flex;
+    flex-flow: wrap column;
+    align-content: flex-start;
+  }
   .ico-text-s {
     font-size: 14px;
     line-height: 1.2;
   }
 
+  .doing-exe,
   .music-exe,
   .resume-exe,
   .txt-exe,
-  .AndroidSimulator-exe {
+  .AndroidSimulator-exe,
+  .RetroSnaker-exe {
     position: absolute;
     top: 10%;
     left: 50%;
@@ -30,9 +38,11 @@
     right: 15px;
   }
 
+  .doing-xx,
   .resume-xx,
   .txt-xx,
-  .AndroidSimulator-xx {
+  .AndroidSimulator-xx,
+  .RetroSnaker-xx {
     padding-right: 10px;
     float: right;
   }
@@ -60,4 +70,26 @@
     height: 667px;
     overflow: hidden;
     background-color: #fff;
+  }
+  .RetroSnaker-bd {
+    width: 600px;
+    height: 452px;
+    background-color: #1e1e1e;
+  }
+  /* 正在开发中样式 */
+  .doing-exe {
+    width: 360px;
+    height: 300px;
+    text-align: center;
+    top: 30%;
+    background-color: skyblue;
+  }
+  .doing-bd {
+    width: 100%;
+    height: 100%;
+  }
+  .doing-bd img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover
   }
