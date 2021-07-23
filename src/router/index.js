@@ -12,8 +12,8 @@ const sDetail = () => import('@/components/common/shoppingmall/childComps/sViews
 const routes = [
   {
     path: '',
-    // redirect: '/welcome'
-    redirect: '/home'
+    redirect: '/welcome'
+    // redirect: '/home'
   },
   {
     path: '/welcome',
