@@ -209,8 +209,8 @@ export default {
       this.TxtShow = true
     },
     CloseTxtExe () {
+      window.location.href = '/home'
       this.TxtShow = false
-      window.location.href = ''
     },
     // 简历
     openResume () {
@@ -226,7 +226,7 @@ export default {
     },
     CloseAndroidSimulatorExe () {
       this.AndroidSimulatorShow = false
-      window.location.href = ''
+      window.location.href = '/home'
     },
     // 贪吃蛇
     openRetroSnaker () {

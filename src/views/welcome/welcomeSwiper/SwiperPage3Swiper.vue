@@ -6,18 +6,24 @@
     <span class="right_btn" @click="down" v-show="currentIndex!=imgArr.length-1">
       <div class="arrow-right"></div>
     </span>
-    <div>
+    <div class="img-box">
       <img :src="imgArr[currentIndex]">
     </div>
-    <div>{{imgArrText[currentIndex]}}</div>
+    <!-- <div>{{imgArrText[currentIndex]}}</div> -->
   </div>
 </template>
 
 <script>
 // 图片需要以这种形式导入
-import pic1 from '@/assets/images/welcome/3.jpg'
-import pic2 from '@/assets/images/welcome/4.jpg'
-import pic3 from '@/assets/images/welcome/screen.png'
+import pic1 from '@/assets/images/welcome/桌面.png'
+import pic2 from '@/assets/images/welcome/听歌.png'
+import pic3 from '@/assets/images/welcome/笔记.png'
+import pic4 from '@/assets/images/welcome/安卓1.png'
+import pic5 from '@/assets/images/welcome/安卓2.png'
+import pic6 from '@/assets/images/welcome/安卓3.png'
+import pic7 from '@/assets/images/welcome/贪吃蛇.png'
+import pic8 from '@/assets/images/welcome/今日天气.png'
+
 export default {
   name: 'Page3swiper',
   data () {
@@ -25,12 +31,12 @@ export default {
       imgArr: [
         pic1,
         pic2,
-        pic3
-      ],
-      imgArrText: [
-        1,
-        2,
-        3
+        pic3,
+        pic4,
+        pic5,
+        pic6,
+        pic7,
+        pic8
       ],
       currentIndex: 0
     }
@@ -101,7 +107,8 @@ export default {
   .right_btn {
     right: 20px;
   }
-  .mySwiper2 img {
+
+  .img-box>img {
     width: 100%;
     height: 100%;
     object-fit: cover;

@@ -33,9 +33,14 @@ a {
   width: 200px;
   height: 200px;
   text-align: center;
+  overflow: hidden;
   line-height: 200px;
   border-radius: 50%;
-  background-color: #fff;
+  /* background-color: #fff; */
+  background-image: url('~@/assets/images/resume/1寸照小.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   -webkit-box-reflect: below 0px -webkit-linear-gradient(bottom, rgba(255,255,255,0.2) 0%, transparent 20%, transparent 100%);
 }
 
@@ -91,6 +96,7 @@ ul {
 li {
   font-size: 16px;
 }
+
 .ul1 {
   list-style: none;
 }
@@ -98,7 +104,8 @@ li {
   padding: 10px;
   font-weight: 700;
 }
-.li2 {
+.li2,
+.li3 {
   padding-left: 30px;
 }
 .ul2 {
@@ -106,4 +113,8 @@ li {
 }
 .ul2>li {
   padding: 2px;
+}
+.li3 {
+  font-size: 14px;
+  color: #ccc;
 }

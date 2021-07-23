@@ -2,7 +2,7 @@
   <div class="page2">
       <div :class="{page2_box: isAnimation}">
         <span class="page2_text">
-          简单的浏览Ay的项目 ?
+          简单浏览Ay的项目 ?
         </span>
       </div>
       <a href="#/home" class="skip_btn" v-show="isSkipShow">No, Skip</a>

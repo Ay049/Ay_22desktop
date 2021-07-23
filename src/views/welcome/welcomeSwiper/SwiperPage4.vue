@@ -1,7 +1,7 @@
 <template>
   <div class="page4">
     感谢您的浏览<br>
-    自动跳转至我的主页
+    正在开机
     <div class="timeOver">{{timeOver}}</div>
     <SwiperLoading></SwiperLoading>
   </div>
